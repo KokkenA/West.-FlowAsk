@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - West-FlowAsk</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>About Us</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="promotion.html">Promotions</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="order.html">Order</a></li>
+                <li><a href="employee.html">Employee</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Our Location</h2>
+        <p>We are located at the heart of the city. Come and visit us!</p>
+        <div id="map" style="height: 400px; width: 100%;"></div>
+        <script>
+            function initMap() {
+                var location = { lat: 40.7128, lng: -74.0060 };  // New York coordinates
+                var map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 14,
+                    center: location
+                });
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: map
+                });
+            }
+        </script>
+        <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap"></script>
+    </main>
+    <footer>
+        <p>&copy; 2024 West-FlowAsk. All rights reserved.</p>
+    </footer>
+</body>
+</html>

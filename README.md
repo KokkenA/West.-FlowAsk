@@ -1,4 +1,3 @@
-Just trying codex for a website
 <!DOCTYPE html>
 <html lang="en">
 <head>

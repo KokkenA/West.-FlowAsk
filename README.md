@@ -1,1 +1,1 @@
-Just tøying codex for a website
+Just trying codex for a website

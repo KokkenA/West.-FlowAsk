@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - West-FlowAsk</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+    <main>
+        <h2>Feedback Summary</h2>
+        <div id="feedbackSummary"></div>
+
+        <h2>Orders Summary</h2>
+        <div id="ordersSummary"></div>
+    </main>
+    <footer>
+        <p>&copy; 2024 West-FlowAsk. All rights reserved.</p>
+    </footer>
+    <script>
+        function loadAdminData() {
+            const feedbackData = JSON.parse(localStorage.getItem('feedbackData')) || [];
+            const feedbackDiv = document.getElementById('feedbackSummary');
+            feedbackDiv.innerHTML = feedbackData.map(item => `
+                <p><strong>${item.name}</strong> (${item.email}): ${item.feedback}</p>
+            `).join('');
+
+            const ordersData = JSON.parse(localStorage.getItem('ordersData')) || [];
+            const ordersDiv = document.getElementById('ordersSummary');
+            ordersDiv.innerHTML = ordersData.map(order => `
+                <p>${order.name} ordered ${order.service} - ${order.email}</p>
+            `).join('');
+        }
+        loadAdminData();
+    </script>
+</body>
+</html>

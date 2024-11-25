@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promotions - West-FlowAsk</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Special Promotions</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="promotion.html">Promotions</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="order.html">Order</a></li>
+                <li><a href="employee.html">Employee</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Current Offers</h2>
+        <p>Check out our amazing deals:</p>
+        <ul>
+            <li><strong>50% off Service 1</strong> - Valid through November 30.</li>
+            <li><strong>Buy One Get One Free</strong> on all products this week!</li>
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2024 West-FlowAsk. All rights reserved.</p>
+    </footer>
+</body>
+</html>

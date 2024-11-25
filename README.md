@@ -1,3 +1,17 @@
+/west-flowask
+│
+├── index.html         (Startside)
+├── menu.html          (Meny-side)
+├── gallery.html       (Galleri)
+├── about.html         (Informasjonsside med kart)
+├── order.html         (Bestillingsside)
+├── promotion.html     (Promoteringsside)
+├── feedback.html      (Feedbackside)
+├── employee.html      (Ansatt-side med menyredigering)
+├── admin.html         (Sjefsside med beskyttet innhold)
+├── style.css          (Felles stilark)
+├── script.js          (Felles JavaScript for dynamikk)
+└── images/            (Mappe for bilder)
 <!DOCTYPE html>
 <html lang="en">
 <head>

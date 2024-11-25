@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Area - West-FlowAsk</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Employee Dashboard</h1>
+    </header>
+    <main>
+        <h2>Access Restricted</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <button type="button" onclick="login()">Login</button>
+        </form>
+
+        <div id="employeeContent" style="display: none;">
+            <h2>Welcome, Employee!</h2>
+            <p>Edit the menu items and prices below:</p>
+
+            <form id="menuForm">
+                <div id="menuEditor"></div>
+                <button type="button" onclick="addMenuItem()">Add New Item</button>
+                <button type="button" onclick="saveMenu()">Save Menu</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 West-FlowAsk. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Dummy login function
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'employee' && password === 'westflow') {
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('employeeContent').style.display = 'block';
+                loadMenu();
+            } else {
+                alert('Invalid credentials! Please try again.');
+            }
+        }
+
+        // Load menu from LocalStorage
+        function loadMenu() {
+            const menuEditor = document.getElementById('menuEditor');
+            const savedMenu = JSON.parse(localStorage.getItem('menu')) || [
+                { name: 'Service 1', price: 50 },
+                { name: 'Service 2', price: 75 },
+                { name: 'Service 3', price: 100 }
+            ];
+
+            menuEditor.innerHTML = '';
+            savedMenu.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.innerHTML = `
+                    <label>
+                        Item Name: <input type="text" value="${item.name}" data-index="${index}" class="menu-item-name">
+                    </label>
+                    <label>
+                        Price: <input type="number" value="${item.price}" data-index="${index}" class="menu-item-price">
+                    </label>
+                    <button type="button" onclick="deleteMenuItem(${index})">Delete</button>
+                    <br><br>
+                `;
+                menuEditor.appendChild(div);
+            });
+        }
+
+        // Save menu to LocalStorage
+        function saveMenu() {
+            const names = document.querySelectorAll('.menu-item-name');
+            const prices = document.querySelectorAll('.menu-item-price');
+
+            const menu = Array.from(names).map((nameInput, index) => ({
+                name: nameInput.value,
+                price: parseFloat(prices[index].value)
+            }));
+
+            localStorage.setItem('menu', JSON.stringify(menu));
+            alert('Menu saved successfully!');
+        }
+
+        // Add new menu item
+        function addMenuItem() {
+            const menuEditor = document.getElementById('menuEditor');
+            const index = menuEditor.childElementCount;
+            const div = document.createElement('div');
+            div.innerHTML = `
+                <label>
+                    Item Name: <input type="text" value="New Item" data-index="${index}" class="menu-item-name">
+                </label>
+                <label>
+                    Price: <input type="number" value="0" data-index="${index}" class="menu-item-price">
+                </label>
+                <button type="button" onclick="deleteMenuItem(${index})">Delete</button>
+                <br><br>
+            `;
+            menuEditor.appendChild(div);
+        }
+
+        // Delete a menu item
+        function deleteMenuItem(index) {
+            const menuEditor = document.getElementById('menuEditor');
+            const children = menuEditor.children;
+            if (children[index]) {
+                menuEditor.removeChild(children[index]);
+                loadMenu(); // Reload to fix indexing
+            }
+        }
+    </script>
+</body>
+</html>

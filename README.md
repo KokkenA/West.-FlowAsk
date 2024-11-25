@@ -189,3 +189,63 @@
     </footer>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - West-FlowAsk</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Give Us Your Feedback</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="promotion.html">Promotions</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="order.html">Order</a></li>
+                <li><a href="employee.html">Employee</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form id="feedbackForm">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" required><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" required><br><br>
+
+            <label for="feedback">Your Feedback:</label><br>
+            <textarea id="feedback" rows="5" required></textarea><br><br>
+
+            <button type="button" onclick="submitFeedback()">Submit</button>
+        </form>
+        <div id="feedbackMessage" style="display: none;">
+            <p>Thank you for your feedback!</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 West-FlowAsk. All rights reserved.</p>
+    </footer>
+    <script>
+        function submitFeedback() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const feedback = document.getElementById('feedback').value;
+
+            const feedbackData = JSON.parse(localStorage.getItem('feedbackData')) || [];
+            feedbackData.push({ name, email, feedback });
+            localStorage.setItem('feedbackData', JSON.stringify(feedbackData));
+
+            document.getElementById('feedbackForm').style.display = 'none';
+            document.getElementById('feedbackMessage').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

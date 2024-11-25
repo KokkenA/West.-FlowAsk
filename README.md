@@ -117,3 +117,38 @@
     </footer>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - West-FlowAsk</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Gallery</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="promotion.html">Promotions</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="order.html">Order</a></li>
+                <li><a href="employee.html">Employee</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Our Beautiful Place</h2>
+        <img src="images/gallery1.jpg" alt="Gallery Image 1">
+        <img src="images/gallery2.jpg" alt="Gallery Image 2">
+        <img src="images/gallery3.jpg" alt="Gallery Image 3">
+    </main>
+    <footer>
+        <p>&copy; 2024 West-FlowAsk. All rights reserved.</p>
+    </footer>
+</body>
+</html>
